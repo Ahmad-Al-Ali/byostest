@@ -13,7 +13,7 @@ This will only work with **Azure Files** which allows read/write operations.
 
 There are two options when the app is running "Check Mounted Paths" and "Upload Tests".
 
-### Check Mounted Paths"
+### Check Mounted Paths
 
 This uses `node-df` to check the mounted storage devices in the running container and displays it in JSON format.  You can use this to verify the Azure Storage accounts that have been mounted and their mount paths.  Example below.
 
@@ -58,3 +58,7 @@ drwxr-xr-x 101 root   root    4096 May 28 01:59 ..
 ```
 
 If the storage account isn't properly mounted, you see a file called `undefined<filename>` under /home/site/wwwroot.
+
+## Deploy to Azure
+
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Ftoanms%2Fbyos%2Fmaster%2Fdeploy.json)
