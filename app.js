@@ -4,7 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 const fs = require('fs');
 var logger = require('morgan');
-const drivelist = require('drivelist');
+var df = require('node-df');
+//const drivelist = require('drivelist');
 const multer = require('multer');
 const helpers = require('./helpers');
 const storage = multer.diskStorage({
@@ -17,7 +18,7 @@ const storage = multer.diskStorage({
   }
 });
 
-//const drives = await drivelist.list();
+
 const byos = process.env.BYOS;
 
 var indexRouter = require('./routes/index');
@@ -50,12 +51,18 @@ app.get('/upload', (req, res) => {
 
 app.get('/mounts', (req, res) => {
 
+df(function (error, response) {
+    if (error) { throw error; }
+ 
+    res.json(response);
+});
 
+/* Replacing drivelist with node-df since it isn't showing mounted network drives
 drivelist.list().then(
   drives => res.json(drives),
   err => console.log(err)
 )
-
+*/
 
 });
 
